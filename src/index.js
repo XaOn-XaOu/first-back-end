@@ -1,13 +1,15 @@
 import cors from 'cors'
+import dotenv from 'dotenv'
 import express from 'express'
 
+dotenv.config()
 const app = express()
-const port = 5550
+const port = process.env.PORT
 
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send({ text: 'hello world!' })
+  res.send({ text: process.env.PEXELS_API_KEY })
 })
 
 app.listen(port, () => {
